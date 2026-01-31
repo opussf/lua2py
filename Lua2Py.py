@@ -6,4 +6,3 @@
  * and loads them into a python data structure.
  *
 """
-
