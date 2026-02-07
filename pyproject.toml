@@ -48,5 +48,6 @@ addopts = [
     "--cov-report=xml",
     "--cov-report=html",
     "--cov-report=term-missing",
+    "--junitxml=junit.xml",
     "-v"
 ]
