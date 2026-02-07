@@ -1,2 +1,2 @@
-def loads( luaIn: str) -> dict:
+def loads(lua_in: str) -> dict:
 	return "Frank"
