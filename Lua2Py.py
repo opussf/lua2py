@@ -7,5 +7,6 @@
  *
 """
 
-import src.lua2py
+import lua2py
 
+print(lua2py.dumps([10]))
