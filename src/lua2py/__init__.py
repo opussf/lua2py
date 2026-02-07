@@ -5,6 +5,7 @@ from lua2py.dump.dump import dump
 
 name = "lua2py"
 __version__ = "0.1.0"
+__all__ = ["load", "loads", "dump", "dumps"]
 
 __doc__ = """
 a Python package to convert between lua and python data structures.

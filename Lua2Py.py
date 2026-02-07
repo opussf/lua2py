@@ -6,3 +6,6 @@
  * and loads them into a python data structure.
  *
 """
+
+import src.lua2py
+
