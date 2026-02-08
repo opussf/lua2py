@@ -1,10 +1,12 @@
 from typing import Any
 
+
 class dumps:
     def __new__(cls, obj_in:Any) -> str:
         """__init__ returns an object, __new__ can return a value"""
         instance = super().__new__(cls)
-        instance.list_out = []
+        instance.list_out = [[]]
+        instance.list_num = 0
 
         instance.__parse_obj(obj_in)
         print(instance.list_out)
@@ -13,7 +15,7 @@ class dumps:
 
     def __parse_obj(instance, obj_in:Any) -> None:
         if isinstance(obj_in, bool):
-            instance.list_out.append(obj_in and "true" or "false")
+            instance.list_out[instance.list_num].append(obj_in and "true" or "false")
         elif isinstance(obj_in, int):
             instance.list_out.append(str(obj_in))
         elif isinstance(obj_in, str):
