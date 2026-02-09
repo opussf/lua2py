@@ -2,7 +2,7 @@ from typing import Any
 
 
 class dumps:
-    def __new__(cls, obj_in:Any) -> str:
+    def __new__(cls, obj_in: Any) -> str:
         """__init__ returns an object, __new__ can return a value"""
         instance = super().__new__(cls)
         instance.list_out = [[]]
@@ -13,7 +13,7 @@ class dumps:
 
         return "".join(instance.list_out)
 
-    def __parse_obj(instance, obj_in:Any) -> None:
+    def __parse_obj(instance, obj_in: Any) -> None:
         if isinstance(obj_in, bool):
             instance.list_out[instance.list_num].append(obj_in and "true" or "false")
         elif isinstance(obj_in, int):

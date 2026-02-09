@@ -1,6 +1,6 @@
-import pytest
-
+# import pytest
 import lua2py
+
 
 class Test_py2lua:
     """Test cases for python to lua"""
@@ -10,18 +10,18 @@ class Test_py2lua:
         assert data == "{10}"
 
     def test_dumps_list_to_lua_multiple(self):
-        data = lua2py.dumps([1,2,3,5,7,11])
+        data = lua2py.dumps([1, 2, 3, 5, 7, 11])
         assert data == "{1,2,3,5,7,11}"
 
     def test_dumps_list_to_lua_mixed(self):
-        data = lua2py.dumps([1,"2",True,False,None,11])
+        data = lua2py.dumps([1, "2", True, False, None, 11])
         assert data == "{1,\"2\",true,false,nil,11}"
 
     def test_dumps_list_with_nested_list(self):
-        data = lua2py.dumps([1,[2,[3,4]]])
+        data = lua2py.dumps([1, [2, [3, 4]]])
         assert data == "{1,{2,{3,4}}}"
 
-    #################
+    # ----------------
     def test_dumps_dict_to_lua_one_entry_key(self):
         data = lua2py.dumps({"key": "value"})
         assert data == "{[\"key\"] = \"value\"}"
@@ -38,7 +38,7 @@ class Test_py2lua:
         data = lua2py.dumps({"5": {"10": 42}})
         assert data == "{[\"5\"] = {[\"10\"] = 42}}"
 
-    ###################  Primatives
+    # ----------------  Primatives
     def test_dumps_bool_true(self):
         data = lua2py.dumps(True)
         assert data == "true"

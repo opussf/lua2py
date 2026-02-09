@@ -1,7 +1,6 @@
-import pytest
+# import pytest
+# import lua2py
 
-import lua2py
 
 class TestThings:
-
-	pass
+    pass

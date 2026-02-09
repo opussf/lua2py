@@ -47,11 +47,6 @@ jobs:
         run: |
           pytest
 
-      - name: SHow me
-        run: |
-          ls -alt
-          cat junit.xml
-
       - name: Publish Unit Test Results
         uses: EnricoMi/publish-unit-test-result-action@v2.6.1
         if: always()
