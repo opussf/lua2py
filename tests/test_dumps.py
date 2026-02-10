@@ -22,7 +22,7 @@ class Test_dumps:
         assert data == "{1, {2, {3, 4}}}"
 
     def test_dumps_list_with_nested_list(self):
-        data = lua2py.dumps([[[1,2],3],4])
+        data = lua2py.dumps([[[1, 2], 3], 4])
         assert data == "{{{1, 2}, 3}, 4}"
 
     # ----------------

@@ -8,12 +8,12 @@ class dumps:
         instance.list_out = []
         instance.__parse_obj(obj_in)
         # print(instance.list_out)
-        return(instance.__str_out())
+        return instance.__str_out()
 
     def __parse_obj(instance, obj_in: Any) -> None:
         if isinstance(obj_in, bool):
             instance.list_out.append(obj_in and "true" or "false")
-        elif isinstance(obj_in, (int,float)):
+        elif isinstance(obj_in, (int, float)):
             instance.list_out.append(str(obj_in))
         elif isinstance(obj_in, str):
             instance.list_out.append(f'"{obj_in}"')
@@ -45,9 +45,9 @@ class dumps:
         tmp_list = []
         for ele in instance.list_out:
             # print(f"{tmp_list}\t+\t{ele}")
-            if len(tmp_list)>=1 and (tmp_list[-1][-1] == "{" or tmp_list[-1][-1] == "["):
+            if len(tmp_list) >= 1 and (tmp_list[-1][-1] == "{" or tmp_list[-1][-1] == "["):
                 tmp_list[-1] = tmp_list[-1] + ele
-            elif len(tmp_list)>=1 and tmp_list[-1][-2:] == "= ":
+            elif len(tmp_list) >= 1 and tmp_list[-1][-2:] == "= ":
                 tmp_list[-1] = tmp_list[-1] + ele
             elif ele == "] = ":
                 tmp_list[-1] = tmp_list[-1] + ele
@@ -57,4 +57,4 @@ class dumps:
                 tmp_list.append(ele)
 
         # print(tmp_list)
-        return(", ".join(tmp_list))
+        return ", ".join(tmp_list)
