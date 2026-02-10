@@ -5,11 +5,12 @@ class dumps:
     def __new__(cls, obj_in: Any) -> str:
         """__init__ returns an object, __new__ can return a value"""
         instance = super().__new__(cls)
-        instance.list_out = [[]]
+        instance.list_out = []
         instance.list_num = 0
 
         instance.__parse_obj(obj_in)
         print(instance.list_out)
+
 
         return "".join(instance.list_out)
 
