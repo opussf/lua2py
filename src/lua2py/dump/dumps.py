@@ -7,7 +7,6 @@ class dumps:
         instance = super().__new__(cls)
         instance.list_out = []
         instance.__parse_obj(obj_in)
-        # print(instance.list_out)
         return instance.__str_out()
 
     def __parse_obj(instance, obj_in: Any) -> None:
@@ -44,7 +43,6 @@ class dumps:
     def __str_out(instance) -> str:
         tmp_list = []
         for ele in instance.list_out:
-            # print(f"{tmp_list}\t+\t{ele}")
             if len(tmp_list) >= 1 and (tmp_list[-1][-1] == "{" or tmp_list[-1][-1] == "["):
                 tmp_list[-1] = tmp_list[-1] + ele
             elif len(tmp_list) >= 1 and tmp_list[-1][-2:] == "= ":
@@ -56,5 +54,4 @@ class dumps:
             else:
                 tmp_list.append(ele)
 
-        # print(tmp_list)
         return ", ".join(tmp_list)
