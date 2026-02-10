@@ -1,4 +1,4 @@
-import pytest
+# import pytest
 from unittest.mock import mock_open, patch
 import lua2py
 
