@@ -11,36 +11,48 @@ class Test_dumps:
 
     def test_dumps_list_to_lua_multiple(self):
         data = lua2py.dumps([1, 2, 3, 5, 7, 11])
-        assert data == "{1,2,3,5,7,11}"
+        assert data == "{1, 2, 3, 5, 7, 11}"
 
     def test_dumps_list_to_lua_mixed(self):
         data = lua2py.dumps([1, "2", True, False, None, 11])
-        assert data == "{1,\"2\",true,false,nil,11}"
+        assert data == "{1, \"2\", true, false, nil, 11}"
 
     def test_dumps_list_with_nested_list_right(self):
         data = lua2py.dumps([1, [2, [3, 4]]])
-        assert data == "{1,{2,{3,4}}}"
+        assert data == "{1, {2, {3, 4}}}"
 
     def test_dumps_list_with_nested_list(self):
         data = lua2py.dumps([[[1,2],3],4])
-        assert data == "{{{1,2},3},4}"
+        assert data == "{{{1, 2}, 3}, 4}"
 
     # ----------------
     def test_dumps_dict_to_lua_one_entry_key(self):
         data = lua2py.dumps({"key": "value"})
         assert data == "{[\"key\"] = \"value\"}"
 
-    @pytest.mark.skip("dumps() not yet implemented")
     def test_dumps_dict_to_lua_multiple(self):
         data = lua2py.dumps({"k1": "v1", "k2": "v2"})
-        assert data == "Write me"
+        assert "[\"k1\"] = \"v1\"" in data
+        assert "[\"k2\"] = \"v2\"" in data
 
-    @pytest.mark.skip("dumps() not yet implemented")
     def test_dumps_dict_to_lua_mixed(self):
         data = lua2py.dumps({"1": 1, "2": True, "3": False, "4": "4", "k1": "v1", "k2": 5})
-        assert data == "Write me"
+        assert '["1"] = 1' in data
+        assert '["2"] = true' in data
+        assert '["3"] = false' in data
+        assert '["4"] = "4"' in data
+        assert '["k1"] = "v1"' in data
+        assert '["k2"] = 5' in data
 
-    @pytest.mark.skip("dumps() not yet implemented")
+    def test_dumps_dict_to_lua_mixed_reveresd(self):
+        data = lua2py.dumps({"k2": 5, "k1": "v1", "4": "4", "3": False, "2": True, "1": 1})
+        assert '["1"] = 1' in data
+        assert '["2"] = true' in data
+        assert '["3"] = false' in data
+        assert '["4"] = "4"' in data
+        assert '["k1"] = "v1"' in data
+        assert '["k2"] = 5' in data
+
     def test_dumps_dict_with_nested_dict(self):
         data = lua2py.dumps({"5": {"10": 42}})
         assert data == "{[\"5\"] = {[\"10\"] = 42}}"
