@@ -6,10 +6,10 @@ class dumps:
         """__init__ returns an object, __new__ can return a value"""
         instance = super().__new__(cls)
         instance.list_out = []
-        instance.__parse_obj(obj_in)
+        instance.__dumps_obj(obj_in)
         return instance.__str_out()
 
-    def __parse_obj(instance, obj_in: Any) -> None:
+    def __dumps_obj(instance, obj_in: Any) -> None:
         if isinstance(obj_in, bool):
             instance.list_out.append(obj_in and "true" or "false")
         elif isinstance(obj_in, (int, float)):
@@ -30,15 +30,15 @@ class dumps:
     def __dumps_list(instance, list_in: list) -> None:
         print(f"{list_in} is a list!")
         for item in list_in:
-            instance.__parse_obj(item)
+            instance.__dumps_obj(item)
 
     def __dumps_dict(instance, dict_in: dict) -> None:
         print(f"{dict_in} is a dict.")
         for key, value in dict_in.items():
             instance.list_out.append("[")
-            instance.__parse_obj(key)
+            instance.__dumps_obj(key)
             instance.list_out.append("] = ")
-            instance.__parse_obj(value)
+            instance.__dumps_obj(value)
 
     def __str_out(instance) -> str:
         tmp_list = []

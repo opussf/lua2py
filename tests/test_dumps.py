@@ -57,7 +57,7 @@ class Test_dumps:
         data = lua2py.dumps({"5": {"10": 42}})
         assert data == "{[\"5\"] = {[\"10\"] = 42}}"
 
-    # ----------------  Primatives
+    # ----------------  Primitives
     def test_dumps_bool_true(self):
         data = lua2py.dumps(True)
         assert data == "true"
