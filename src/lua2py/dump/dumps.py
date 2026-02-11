@@ -43,7 +43,7 @@ class dumps:
     def __str_out(instance) -> str:
         tmp_list = []
         for ele in instance.list_out:
-            if len(tmp_list) >= 1 and (tmp_list[-1][-1] == "{" or tmp_list[-1][-1] == "["):
+            if tmp_list and tmp_list[-1][-1] in ("{", "["):
                 tmp_list[-1] = tmp_list[-1] + ele
             elif len(tmp_list) >= 1 and tmp_list[-1][-2:] == "= ":
                 tmp_list[-1] = tmp_list[-1] + ele
