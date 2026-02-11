@@ -45,7 +45,7 @@ class dumps:
         for ele in instance.list_out:
             if tmp_list and tmp_list[-1][-1] in ("{", "["):
                 tmp_list[-1] = tmp_list[-1] + ele
-            elif len(tmp_list) >= 1 and tmp_list[-1][-2:] == "= ":
+            elif tmp_list and tmp_list[-1][-2:] == "= ":
                 tmp_list[-1] = tmp_list[-1] + ele
             elif ele == "] = ":
                 tmp_list[-1] = tmp_list[-1] + ele
