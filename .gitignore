@@ -1,2 +1,13 @@
+packages/
+build/
+dist/
+*egg-info/
+
+.coverage
+coverage.xml
+junit.xml
+htmlcov/
+.pytest_cache/
+__pycache__
 
 *.pyc

@@ -6,3 +6,7 @@
  * and loads them into a python data structure.
  *
 """
+
+import lua2py
+
+print(lua2py.dumps([10]))
